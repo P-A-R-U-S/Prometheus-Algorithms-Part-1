@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "I", "I", "{A09AE661-16BF-4961-A598-B689DF3914B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson1", "Lesson1", "{FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaratsubaMultiplication", "KaratsubaMultiplication\KaratsubaMultiplication.csproj", "{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonachi", "Fibonachi\Fibonachi.csproj", "{59DFCA35-B194-4864-97CE-C106644EA3DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC} = {A09AE661-16BF-4961-A598-B689DF3914B0}
+		{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111} = {FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC}
+	EndGlobalSection
+EndGlobal
