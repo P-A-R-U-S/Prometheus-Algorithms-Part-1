@@ -126,7 +126,7 @@ namespace KaratsubaMultiplication
                 int c_plus_d = (c + d);
                 int a_plus_b__mult_c_plus_d = 0;
 
-                if (a_plus_b > 10 || c_plus_d > 10)
+                if (a_plus_b >= 10 || c_plus_d >= 10)
                 {
                     a_plus_b__mult_c_plus_d =
                         (int)Multiply(a_plus_b.ToString("00"), c_plus_d.ToString("00"), level + 1);

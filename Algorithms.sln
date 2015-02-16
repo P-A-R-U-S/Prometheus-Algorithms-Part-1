@@ -5,11 +5,15 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "I", "I", "{A09AE661-16BF-4961-A598-B689DF3914B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson1", "Lesson1", "{FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 1", "Lesson 1", "{FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaratsubaMultiplication", "KaratsubaMultiplication\KaratsubaMultiplication.csproj", "{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonachi", "Fibonachi\Fibonachi.csproj", "{59DFCA35-B194-4864-97CE-C106644EA3DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 2", "Lesson 2", "{DB959B48-693C-47AB-8C0B-A5B91CEEAA03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversions", "Inversions\Inversions.csproj", "{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59DFCA35-B194-4864-97CE-C106644EA3DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC} = {A09AE661-16BF-4961-A598-B689DF3914B0}
 		{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111} = {FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC}
+		{DB959B48-693C-47AB-8C0B-A5B91CEEAA03} = {A09AE661-16BF-4961-A598-B689DF3914B0}
+		{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B} = {DB959B48-693C-47AB-8C0B-A5B91CEEAA03}
 	EndGlobalSection
 EndGlobal

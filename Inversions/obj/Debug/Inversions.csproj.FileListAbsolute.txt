@@ -1,0 +1,13 @@
+C:\Development\Algorithms\Decomposition\bin\Debug\Inversions.exe.config
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\data_examples_02\test_100_50.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\data_examples_02\test_10_5.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\data_examples_02\test_50_100.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\data_examples_02\test_5_10.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\data_examples_02\test_5_5.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\input_1000_100.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Data\input_1000_5.txt
+C:\Development\Algorithms\Decomposition\bin\Debug\Inversions.exe
+C:\Development\Algorithms\Decomposition\bin\Debug\Inversions.pdb
+C:\Development\Algorithms\Decomposition\obj\Debug\Inversions.csprojResolveAssemblyReference.cache
+C:\Development\Algorithms\Decomposition\obj\Debug\Inversions.exe
+C:\Development\Algorithms\Decomposition\obj\Debug\Inversions.pdb
