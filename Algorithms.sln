@@ -24,6 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversions", "Inversions\In
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 3", "Lesson 3", "{29EA5B1E-472A-4EB6-82C8-DD7AF0EDBA3B}"
 	ProjectSection(SolutionItems) = preProject
+		QuickSort\Practical.doc = QuickSort\Practical.doc
 		QuickSort\Theoretical.doc = QuickSort\Theoretical.doc
 	EndProjectSection
 EndProject
