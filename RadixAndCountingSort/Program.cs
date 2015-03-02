@@ -193,9 +193,9 @@ namespace RadixAndCountingSort
             //Step 4
             for (var i = length-1; i >= 0; i--)
             {
-                var ai = a[i];
-                var cai = c[a[i]];
-                var bcai = b[c[a[i]] -1];
+                //var ai = a[i];
+                //var cai = c[a[i]];
+                //var bcai = b[c[a[i]] -1];
 
                 b[c[a[i]]-1] = a[i];
                 c[a[i]] = c[a[i]] - 1;
