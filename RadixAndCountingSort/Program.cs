@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace RadixAndCountingSort
 {
@@ -101,8 +102,10 @@ namespace RadixAndCountingSort
                 }
                 Console.WriteLine();
 
-                var cs1 = new CountingSort(array);
-                cs1.Sort();
+                //var cs1 = new CountingSort(array);
+                //cs1.Sort();
+
+                array = CountingSort(array);
 
                 for (var j = 0; j < length; ++j)
                 {
@@ -157,6 +160,48 @@ namespace RadixAndCountingSort
                 }
             }
 
+        }
+
+
+        public char[] CountingSort(char[] a)
+        {
+            var length = a.Length;
+
+            var b = new char[length];
+            var c = new Dictionary<char, int>();
+           
+            //Spep 1
+            for (var j = 'a'; j <= 'z'; j++)
+                if(a.Contains(j) && !c.ContainsKey(j))
+                    c.Add(j, 0);
+            
+            //Step 2
+            for (var i = 0; i < length; i++)
+                c[a[i]] = c[a[i]] + 1;
+           
+            //Step 3
+            var keys = c.Keys.ToArray();
+            var cj_1 = 0;
+            foreach (var j in keys)
+            {
+                c[j] = c[j] + cj_1;
+
+                cj_1 = c[j];
+
+            }
+
+            //Step 4
+            for (var i = length-1; i >= 0; i--)
+            {
+                var ai = a[i];
+                var cai = c[a[i]];
+                var bcai = b[c[a[i]] -1];
+
+                b[c[a[i]]-1] = a[i];
+                c[a[i]] = c[a[i]] - 1;
+            }
+
+            return b;
         }
     }
 
