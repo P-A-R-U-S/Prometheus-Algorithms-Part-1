@@ -1,0 +1,40 @@
+Medians: 7
+H_low: []
+H_high: [7]
+
+Medians: 6 7
+H_low: [6]
+H_high: [7]
+
+Medians: 7
+H_low: [6]
+H_high: [7, 8]
+
+Medians: 6 7
+H_low: [6, 3]
+H_high: [7, 8]
+
+Medians: 6
+H_low: [6, 3, 4]
+H_high: [7, 8]
+
+Medians: 4 6
+H_low: [4, 3, 2]
+H_high: [6, 8, 7]
+
+Medians: 5
+H_low: [4, 3, 2]
+H_high: [5, 6, 7, 8]
+
+Medians: 5 6
+H_low: [5, 4, 2, 3]
+H_high: [6, 8, 7, 10]
+
+Medians: 5
+H_low: [5, 4, 2, 3, 1]
+H_high: [6, 8, 7, 10]
+
+Medians: 5 6
+H_low: [5, 4, 2, 3, 1]
+H_high: [6, 8, 7, 10, 9]
+
