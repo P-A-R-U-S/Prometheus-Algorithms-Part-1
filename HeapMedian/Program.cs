@@ -36,6 +36,8 @@ namespace HeapMedian
             Test("12_1000");
              */
 
+            Task1();
+            Task2();
         }
 
         private static void Test(string test)
@@ -75,8 +77,9 @@ namespace HeapMedian
                 var median = Step(value);
                 var originMedian = outputReader.ReadLine();
 
+                ++i;
 
-                Console.Write("Median: " + originMedian + " --> " + median + ":");
+                Console.Write(i + ":--> Median: " + originMedian + " --> " + median + ":");
                 if (originMedian == median)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -92,7 +95,86 @@ namespace HeapMedian
 
                 Console.ResetColor();
 
+            }
+        }
+
+        private static void Task1()
+        {
+            _htl = new List<int>();
+            _highToLow = new Heap(_htl, HeapType.HighToLow);
+
+            _lth = new List<int>();
+            _lowToHigh = new Heap(_lth, HeapType.LowToHigh);
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Практическое задание 1.");
+            Console.WriteLine("--------------------------------------------");
+
+            var inputFileName = @"Data\input_16_10000.txt";
+            var inputReader = new StreamReader((new FileInfo(inputFileName)).OpenRead());
+
+            var i = 0;
+            var row = inputReader.ReadLine();
+            Console.WriteLine("Количество элементов:" + row);
+
+            while (!inputReader.EndOfStream)
+            {
+                row = inputReader.ReadLine();
+                var value = Convert.ToInt32(row);
+
+                var median = Step(value);
                 ++i;
+
+                if (i == 2015 || i == 9876)
+                    Console.WriteLine(i + ":--> Median: " + median + ":");                
+            }
+        }
+
+        private static void Task2()
+        {
+            _htl = new List<int>();
+            _highToLow = new Heap(_htl, HeapType.HighToLow);
+
+            _lth = new List<int>();
+            _lowToHigh = new Heap(_lth, HeapType.LowToHigh);
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Практическое задание 2.");
+            Console.WriteLine("--------------------------------------------");
+
+            var inputFileName = @"Data\input_16_10000.txt";
+            var inputReader = new StreamReader((new FileInfo(inputFileName)).OpenRead());
+
+            var i = 0;
+            var row = inputReader.ReadLine();
+            Console.WriteLine("Количество элементов:" + row);
+
+            while (!inputReader.EndOfStream)
+            {
+                row = inputReader.ReadLine();
+                var value = Convert.ToInt32(row);
+
+                var median = Step(value);
+                ++i;
+
+                if (i == 2015)
+                {
+                    Console.Write(i + ":--> Median: " + median + ": 5 элементов масива Hlow: ");
+                    for(var j = 0; j < 5; ++j)
+                        Console.Write("{0},", _htl[j]);
+                    Console.WriteLine();
+                }
+
+                if (i == 2015)
+                {
+                    Console.Write(i + ":--> Median: " + median + ": 5 элементов масива Hhigh: ");
+                    for (var j = 0; j < 5; ++j)
+                        Console.Write("{0},", _lth[j]);
+                    Console.WriteLine();
+                }
+               
             }
         }
 

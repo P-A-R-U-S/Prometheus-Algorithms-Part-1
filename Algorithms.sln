@@ -40,6 +40,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadixAndCountingSort", "Rad
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 5", "Lesson 5", "{C3C47643-53C3-4C3D-86CC-700C3793CA9E}"
 	ProjectSection(SolutionItems) = preProject
+		HeapMedian\Practical.doc = HeapMedian\Practical.doc
 		HeapMedian\Theoretical.doc = HeapMedian\Theoretical.doc
 	EndProjectSection
 EndProject
