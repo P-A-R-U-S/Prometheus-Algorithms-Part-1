@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using HeapMedian;
 using System.Collections.Generic;
 using Xunit;

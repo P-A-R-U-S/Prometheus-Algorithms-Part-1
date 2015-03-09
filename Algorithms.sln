@@ -39,6 +39,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadixAndCountingSort", "RadixAndCountingSort\RadixAndCountingSort.csproj", "{C5D412CC-EDF0-4B4B-8E96-F3340E3A2D4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 5", "Lesson 5", "{C3C47643-53C3-4C3D-86CC-700C3793CA9E}"
+	ProjectSection(SolutionItems) = preProject
+		HeapMedian\Theoretical.doc = HeapMedian\Theoretical.doc
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeapMedian", "HeapMedian\HeapMedian.csproj", "{B9208895-BB0B-4E12-8FB4-A5101AD807C3}"
 EndProject

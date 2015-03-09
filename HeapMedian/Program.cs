@@ -1,14 +1,151 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace HeapMedian
 {
     class Program
     {
+        static IList<int> _htl;
+        static Heap _highToLow;
+
+        static IList<int> _lth;
+        static Heap _lowToHigh;
+
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.GetEncoding("Cyrillic");
+            Console.InputEncoding = Encoding.GetEncoding("Cyrillic");
+
+            //Раскоментрируйте чтобы запустить тесты
+            /*
+            Test("01_10");
+            Test("02_10");
+            Test("03_10");
+            Test("04_10");
+
+            Test("05_100");
+            Test("06_100");
+            Test("07_100");
+            Test("08_100");
+
+            Test("09_1000");
+            Test("10_1000");
+            Test("11_1000");
+            Test("12_1000");
+             */
+
+        }
+
+        private static void Test(string test)
+        {
+            _htl = new List<int>();
+            _highToLow = new Heap(_htl, HeapType.HighToLow);
+
+            _lth = new List<int>();
+            _lowToHigh = new Heap(_lth, HeapType.LowToHigh);
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Test: " + test);
+            Console.WriteLine("--------------------------------------------");
+
+
+            var inputFileName = @"Data\data_examples_05\input_" + test  + ".txt";
+            var extOutputFileName = @"Data\data_examples_05\ext_output_" + test + ".txt";
+            var heapsFileName = @"Data\data_examples_05\heaps_" + test + ".txt";
+            var outputFileName = @"Data\data_examples_05\output_" + test + ".txt";
+
+            var inputReader = new StreamReader((new FileInfo(inputFileName)).OpenRead());
+            var extOutputReader = new StreamReader((new FileInfo(extOutputFileName)).OpenRead());
+            var heapsReader = new StreamReader((new FileInfo(heapsFileName)).OpenRead());
+            var outputReader = new StreamReader((new FileInfo(outputFileName)).OpenRead());
+
+
+            var i = 0;
+            var row = inputReader.ReadLine();
+            Console.WriteLine("Количество элементов:" + row);
+
+            while (!inputReader.EndOfStream)
+            {
+                row = inputReader.ReadLine();
+                var value = Convert.ToInt32(row);
+
+                var median = Step(value);
+                var originMedian = outputReader.ReadLine();
+
+
+                Console.Write("Median: " + originMedian + " --> " + median + ":");
+                if (originMedian == median)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Passed");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Failed.");
+                    Console.WriteLine("To continie click Enter.");
+                    Console.Read();
+                }
+
+                Console.ResetColor();
+
+                ++i;
+            }
+        }
+
+        private static string Step(int value)
+        {
+            var extractMax = _highToLow.Max;
+            var extractMin = _lowToHigh.Min;
+
+            if (extractMax == null && extractMin == null)
+            {
+                _highToLow.Insert(value);
+                return Convert.ToString(value);
+            }
+
+            if (value < extractMax)
+                _highToLow.Insert(value);
+            else
+                _lowToHigh.Insert(value);
+
+            if (_highToLow.Size > _lowToHigh.Size + 1)
+            {
+                var maxHighToLow = _highToLow.ExtractMax();
+                _lowToHigh.Insert(maxHighToLow.Value);
+            }
+
+            if (_lowToHigh.Size > _highToLow.Size + 1)
+            {
+                var minLowToHigh = _lowToHigh.ExtractMin();
+                _highToLow.Insert(minLowToHigh.Value);
+            }
+
+            //GetMedian
+            var median = string.Empty;
+            if (_highToLow.Size == _lowToHigh.Size)
+            {
+                median = String.Format("{0} {1}", _highToLow.Max, _lowToHigh.Min);
+            }
+
+            if (_highToLow.Size > _lowToHigh.Size)
+            {
+                median = String.Format("{0}", _highToLow.Max);
+            }
+
+            if (_lowToHigh.Size > _highToLow.Size)
+            {
+                median = String.Format("{0}", _lowToHigh.Min);
+            }
+
+            return median;
         }
     }
+
+    
 
     public enum HeapType
     {
@@ -26,6 +163,13 @@ namespace HeapMedian
         {
             _heapType = heapType;
             _array = a;
+            _d = 2;
+        }
+
+        public Heap(HeapType heapType)
+        {
+            _heapType = heapType;
+            _array = new List<int>();
             _d = 2;
         }
 
@@ -186,21 +330,26 @@ namespace HeapMedian
 
         #region Max
 
-        private int MaxHighToLow
-        {
-            get { return _array[0]; }
-        }
-
-        private int MaxLowToHigh
+        private int? MaxHighToLow
         {
             get
             {
-                //heapSize -= 1;
+                if (_array.Count == 0) return null;
+                return _array[0];
+            }
+        }
+
+        private int? MaxLowToHigh
+        {
+            get
+            {
+                if (_array.Count == 0) return null;
+
                 throw new NotImplementedException("Not implemented....");
             }
         }
 
-        public int Max 
+        public int? Max 
         {
             get
             {
@@ -214,22 +363,28 @@ namespace HeapMedian
         #endregion
 
         #region Min
-        private int MinHighToLow
+        private int? MinHighToLow
         {
             get
             {
-                //heapSize -= 1;
+                if (_array.Count == 0) return null;
+
                 throw new NotImplementedException("Not implemented....");
             }
         }
 
-        private int MinLowToHigh
+        private int? MinLowToHigh
         {
-            get { return _array[0]; }
+            get
+            {
+                if (_array.Count == 0) return null;
+
+                return _array[0];
+            }
            
         }
 
-        public int Min
+        public int? Min
         {
             get
             {
@@ -243,8 +398,10 @@ namespace HeapMedian
 
         #region ExtractMax
 
-        private int ExtractMaxHighToLow()
+        private int? ExtractMaxHighToLow()
         {
+            if (_array.Count == 0) return null;
+
             var max = _array[0];
             _array[0] = _array[Size - 1];
             _array.RemoveAt(Size-1);
@@ -254,12 +411,14 @@ namespace HeapMedian
             return max;
         }
 
-        private int ExtractMaxLowToHigh()
+        private int? ExtractMaxLowToHigh()
         {
+            if (_array.Count == 0) return null;
+
             throw  new NotImplementedException("Not implemented...");
         }
 
-        public int ExtractMax()
+        public int? ExtractMax()
         {
             if (_heapType == HeapType.HighToLow) return ExtractMaxHighToLow();
             if (_heapType == HeapType.LowToHigh) return ExtractMaxLowToHigh();
@@ -272,14 +431,18 @@ namespace HeapMedian
 
         #region ExtractMin
 
-        private int ExtractMinHighToLow()
+        private int? ExtractMinHighToLow()
         {
+            if (_array.Count == 0) return null;
+
             throw new NotImplementedException("Not implemented...");
 
         }
 
-        private int ExtractMinLowToHigh()
+        private int? ExtractMinLowToHigh()
         {
+            if (_array.Count == 0) return null;
+
             var max = _array[0];
             _array[0] = _array[Size - 1];
             _array.RemoveAt(Size - 1);
@@ -289,7 +452,7 @@ namespace HeapMedian
             return max;
         }
 
-        public int ExtractMin()
+        public int? ExtractMin()
         {
             if (_heapType == HeapType.HighToLow) return ExtractMinHighToLow();
             if (_heapType == HeapType.LowToHigh) return ExtractMinLowToHigh();
