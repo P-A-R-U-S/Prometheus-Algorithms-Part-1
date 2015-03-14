@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HeapMedian\HeapMedian.csproj">
+    <ProjectReference Include="..\HeapMedian\Heaps.csproj">
       <Project>{b9208895-bb0b-4e12-8fb4-a5101ad807c3}</Project>
-      <Name>HeapMedian</Name>
+      <Name>Heaps</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
