@@ -1,0 +1,12 @@
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\BinaryTree.Search.Tests.dll
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\BinaryTree.Search.Tests.pdb
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\FluentAssertions.Core.dll
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\FluentAssertions.dll
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\xunit.dll
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\FluentAssertions.pdb
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\FluentAssertions.xml
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\FluentAssertions.Core.pdb
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\FluentAssertions.Core.xml
+C:\Development\Algorithms\BinaryTree.Search.Tests\bin\Debug\xunit.xml
+C:\Development\Algorithms\BinaryTree.Search.Tests\obj\Debug\BinaryTree.Search.Tests.dll
+C:\Development\Algorithms\BinaryTree.Search.Tests\obj\Debug\BinaryTree.Search.Tests.pdb
