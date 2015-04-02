@@ -62,10 +62,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTables", "HashTables\HashTables.csproj", "{254254CA-D651-4B67-A4E4-6D2C6FD81DE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 7", "Lesson 7", "{53FF6D12-C850-43D6-A4FD-C8251681A816}"
+	ProjectSection(SolutionItems) = preProject
+		BinaryTree.Search\Завдання №7.pdf = BinaryTree.Search\Завдання №7.pdf
+		BinaryTree.Search\Теоретичний тест №7.pdf = BinaryTree.Search\Теоретичний тест №7.pdf
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree.Search", "BinaryTree.Search\BinaryTree.Search.csproj", "{03867119-256B-4DE0-8440-7A6525C2CC76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 8", "Lesson 8", "{E2FDB443-DA92-4250-804E-E12E09FA6314}"
+	ProjectSection(SolutionItems) = preProject
+		Graph\Теоретичний тест №8.pdf = Graph\Теоретичний тест №8.pdf
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{743136B1-EF23-4A37-BA1F-533013619ABD}"
 EndProject
