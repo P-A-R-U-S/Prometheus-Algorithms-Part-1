@@ -14,12 +14,9 @@ namespace Graph
             Console.InputEncoding = Encoding.GetEncoding("Cyrillic");
 
             //Test1("08_1"); 
-
-            Test1("08_2"); //Failed
-
-            //Test1("08_3"); //Failed
-
-            //Test1("08_4"); //Failed
+            //Test1("08_2");
+            //Test1("08_3");
+            //Test1("08_4");
             //Console.Read();
         }
 
@@ -58,7 +55,9 @@ namespace Graph
                     graph._graph[vs[0]].Add(vs[1]);
             }
             //Validate Graph
-            var length = graph._graph.Count;
+            var length = 0;
+
+            length = graph._graph.Count;
             for (var i=0; i < length; ++i)
             {
                 var v = graph._graph.Keys.ElementAt(i);
@@ -103,22 +102,30 @@ namespace Graph
                     Console.Write("{0} -->", or);
 
                     var count = Convert.ToInt32(or);
-                    var isResultFount = false;
-                    foreach (var r in result)
+                    var isResultFound = false;
+
+                    var i = result.Count-1;
+                    while (!isResultFound && i >= 0)
                     {
+                        var r = result[i];
+
                         if ((r as List<string>).Count == count)
                         {
-                            isResultFount = true;
+                            isResultFound = true;
 
                             var sc = String.Join(" ", (r as List<string>));
                             Console.Write("({0}) ", sc);
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Passed");
                             Console.ResetColor();
+
+                            result.RemoveAt(i);
                         }
+
+                        --i;
                     }
 
-                    if (!isResultFount)
+                    if (!isResultFound)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Failed");
@@ -313,10 +320,10 @@ namespace Graph
         
         public IList<IList<string>> StrongConnectedComponents()
         {
-            var strongComponents = new List<IList<string>>();
+            var strongComponents2 = new List<IList<string>>();
             
             //1
-            DFSLoop(_graph, null);
+            DFSLoop1(_graph, null);
 
             //2 - транспонировать графф
             var traponedGraph = new Dictionary<string, IList<string>>();
@@ -333,14 +340,11 @@ namespace Graph
                 }
             }
 
-            //3
-            Console.WriteLine("--------->");
+            DFSLoop2(traponedGraph, strongComponents2);
 
-            DFSLoop(traponedGraph, strongComponents);
-
-            return strongComponents;
+            return strongComponents2;
         }
-        internal void DFSLoop(IDictionary<string, IList<string>> graph, IList<IList<string>> strongComponents)
+        internal void DFSLoop1(IDictionary<string, IList<string>> graph, IList<IList<string>> strongComponents)
         {
             _dfs_t.Clear();
             _t = 0;
@@ -351,7 +355,24 @@ namespace Graph
                     if (strongComponents != null)
                         strongComponents.Add(new List<string> { v } );
 
-                    Console.Write("{0} --> ", v);
+                    DFSR_Topological_StrongComponents(graph, v, strongComponents);
+                }
+            }
+        }
+        internal void DFSLoop2(IDictionary<string, IList<string>> graph, IList<IList<string>> strongComponents)
+        {
+            _dfs_t.Clear();
+            _t = 0;
+
+            var _f_sorted = _f.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+
+            foreach (var f in _f_sorted)
+            {
+                var v = f.Key;
+                if (!_dfs_t.Contains(v))
+                {
+                    if (strongComponents != null)
+                        strongComponents.Add(new List<string> { v });
 
                     DFSR_Topological_StrongComponents(graph, v, strongComponents);
                 }
@@ -367,16 +388,13 @@ namespace Graph
                 {
                     if (strongComponents != null)
                         strongComponents.Last().Add(u);
-                    Console.Write("{0} --> ", u);
 
                     DFSR_Topological_StrongComponents(graph, u, strongComponents);
                 }
             }
-
-          
+        
             _t += 1;
             _f[s] = _t;
-            Console.WriteLine();
         }
     }
 }
