@@ -13,11 +13,34 @@ namespace Graph
             Console.OutputEncoding = Encoding.GetEncoding("Cyrillic");
             Console.InputEncoding = Encoding.GetEncoding("Cyrillic");
 
-            //Test1("08_1"); 
-            //Test1("08_2");
-            //Test1("08_3");
-            //Test1("08_4");
-            //Console.Read();
+            #region  Тесты практического задания № 8
+
+            /*
+            Test1("08_1");
+            Console.Read();
+            Console.Read();
+
+            
+            Test1("08_2");
+            Console.Read();
+            Console.Read();
+
+            Test1("08_3");
+            Console.Read();
+            Console.Read();
+
+            Test1("08_4");
+            Console.Read();
+            Console.Read();
+            
+             */
+
+            #endregion
+
+            #region Практическое задание № 8
+            Task1("08");
+            Console.Read();
+            #endregion
         }
 
         private static void Test1(string test)
@@ -34,7 +57,7 @@ namespace Graph
             var outputFileName = @"Data\test_08\test_" + test + ".output.txt";
             var outputReader = new StreamReader((new FileInfo(outputFileName)).OpenRead());
 
-            var graph = new Graph();
+            var graph = new Graph<string>();
 
             while (!inputReader.EndOfStream)
             {
@@ -130,38 +153,128 @@ namespace Graph
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Failed");
                         Console.ResetColor();
+                        Console.Read();
                     }
                 }
             }
         }
+
+        private static void Task1(string task)
+        {
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Практическое задание #1 : " + task);
+            Console.WriteLine("--------------------------------------------");
+
+            var inputFileName = @"Data\input_" + task + ".txt";
+            //var inputFileName = @"Data\test_08\test_08_1.txt";
+            var inputReader = File.OpenText(inputFileName);
+
+            var graph = new Graph<int>();
+
+            var i = 0;
+            while (!inputReader.EndOfStream)
+            {
+                var row = inputReader.ReadLine();
+                var vs = row.Split(' ');
+
+                if (vs.Length > 1 && vs[0] == vs[1])
+                {
+                    continue;
+                }
+
+                if (!graph._graph.ContainsKey(Convert.ToInt32(vs[0])))
+                {
+                    graph._graph.Add(Convert.ToInt32(vs[0]), new List<int>());
+                }
+
+                if (vs.Length > 1)
+                    graph._graph[Convert.ToInt32(vs[0])].Add(Convert.ToInt32(vs[1]));
+
+                //Console.WriteLine("{0}:{1}", i, row);
+                ++i;
+               
+            }
+            Console.WriteLine("Read: Done");
+
+            var length = 0;
+
+            length = graph._graph.Count;
+            for (i = 0; i < length; ++i)
+            {
+                var v = graph._graph.Keys.ElementAt(i);
+                foreach (var u in graph._graph[v])
+                {
+                    if (!graph._graph.Keys.Contains(u))
+                    {
+                        graph._graph.Add(u, new List<int>());
+                    }
+                }
+            }
+
+            Console.WriteLine("Validation: Done");
+
+            var result = graph.StrongConnectedComponents();
+            Console.WriteLine(new string('.', 50));
+
+            Console.WriteLine("Result: To file --> Start.");
+
+            var componentSize = new List<int>();
+            var resultCount = result.Count();
+            for (i = 0; i < resultCount; ++i)
+            {
+                componentSize.Add(result[i].Count);
+            }
+            componentSize.Sort();
+
+            File.Delete("result.txt");
+            var file = new StreamWriter( File.Create("result.txt", 100));
+            
+           
+            var componentCount = componentSize.Count;
+            for (i = componentCount-1; i >= 0; --i)
+            {
+                //Console.Write("{0},", componentSize[i]);
+                file.WriteLine(componentSize[i]);
+            }
+
+            file.Flush();
+            file.Dispose();
+            file.Close();
+
+            Console.WriteLine("Result: To file --> End.");
+
+        }
+
     }
 
-    public class Graph
+    public class Graph<T>
     {
-        internal IDictionary<string, IList<string>> _graph;
-        internal IDictionary<string, int> _bfs;
-        internal IDictionary<string, int> _dfs;
-        internal IDictionary<string, int> _ts;
-        internal IDictionary<string, int> _f;
-        internal IList<string> _dfs_t;
-        internal IDictionary<string, int> _d;
-        internal IDictionary<string, string> _p;
+        internal IDictionary<T, IList<T>> _graph;
+        internal IDictionary<T, int> _bfs;
+        internal IDictionary<T, int> _dfs;
+        internal IDictionary<T, int> _ts;
+        internal IDictionary<T, int> _f;
+        internal IList<T> _dfs_t;
+        internal IDictionary<T, int> _d;
+        internal IDictionary<T, T> _p;
         private int _label;
         private int _t;
 
 
         public Graph()
         {
-            _graph = new Dictionary<string, IList<string>>();
-            _bfs = new Dictionary<string, int>();
-            _d = new Dictionary<string, int>();
-            _p = new Dictionary<string, string>();
-            _f = new Dictionary<string, int>();
+            _graph = new Dictionary<T, IList<T>>();
+            _bfs = new Dictionary<T, int>();
+            _d = new Dictionary<T, int>();
+            _p = new Dictionary<T, T>();
+            _f = new Dictionary<T, int>();
 
-             _dfs = new Dictionary<string, int>();
+             _dfs = new Dictionary<T, int>();
 
-             _ts = new Dictionary<string, int>();
-            _dfs_t = new List<string>();
+             _ts = new Dictionary<T, int>();
+            _dfs_t = new List<T>();
         }
 
         public void BreadthFirstSearch()
@@ -173,9 +286,9 @@ namespace Graph
             var v = _graph.Keys.First();
             BFS(v);
         }
-        private void BFS(string s)
+        private void BFS(T s)
         {
-            var bfsQueue = new Queue<string>();
+            var bfsQueue = new Queue<T>();
 
             var k = 1;
 
@@ -241,7 +354,7 @@ namespace Graph
             var v = _graph.Keys.First();
             DFS(v);
         }
-        private int DFSR(string s, int k)
+        private int DFSR(T s, int k)
         {
             _dfs[s] = k;
             foreach (var u in _graph[s])
@@ -254,10 +367,10 @@ namespace Graph
 
             return k;
         }
-        private void DFS(string s)
+        private void DFS(T s)
         {
             var k = 1;
-            var dfsStack = new Stack<string>();
+            var dfsStack = new Stack<T>();
             
             _dfs[s] = k;
             dfsStack.Push(s);
@@ -302,7 +415,7 @@ namespace Graph
 
             }
         }
-        private void DFSR_Topological(string s)
+        private void DFSR_Topological(T s)
         {
             _dfs_t.Add(s);
             foreach (var u in _graph[s])
@@ -318,19 +431,21 @@ namespace Graph
         }
 
         
-        public IList<IList<string>> StrongConnectedComponents()
+        // Версия StrongConnectedComponend с рекурсией.
+        /*
+        public IList<IList<T>> StrongConnectedComponents()
         {
-            var strongComponents2 = new List<IList<string>>();
+            var strongComponents2 = new List<IList<T>>();
             
             //1
             DFSLoop1(_graph, null);
 
             //2 - транспонировать графф
-            var traponedGraph = new Dictionary<string, IList<string>>();
+            var traponedGraph = new Dictionary<T, IList<T>>();
 
             foreach (var v in _graph.Keys)
             {
-                traponedGraph.Add(v, new List<string>());
+                traponedGraph.Add(v, new List<T>());
                 foreach(var u in _graph.Keys)
                 {
                     if (_graph[u].Contains(v))
@@ -344,7 +459,7 @@ namespace Graph
 
             return strongComponents2;
         }
-        internal void DFSLoop1(IDictionary<string, IList<string>> graph, IList<IList<string>> strongComponents)
+        internal void DFSLoop1(IDictionary<T, IList<T>> graph, IList<IList<T>> strongComponents)
         {
             _dfs_t.Clear();
             _t = 0;
@@ -353,13 +468,13 @@ namespace Graph
                 if (!_dfs_t.Contains(v))
                 {
                     if (strongComponents != null)
-                        strongComponents.Add(new List<string> { v } );
+                        strongComponents.Add(new List<T> { v } );
 
                     DFSR_Topological_StrongComponents(graph, v, strongComponents);
                 }
             }
         }
-        internal void DFSLoop2(IDictionary<string, IList<string>> graph, IList<IList<string>> strongComponents)
+        internal void DFSLoop2(IDictionary<T, IList<T>> graph, IList<IList<T>> strongComponents)
         {
             _dfs_t.Clear();
             _t = 0;
@@ -368,17 +483,17 @@ namespace Graph
 
             foreach (var f in _f_sorted)
             {
-                var v = f.Key;
+                T v = f.Key;
                 if (!_dfs_t.Contains(v))
                 {
                     if (strongComponents != null)
-                        strongComponents.Add(new List<string> { v });
+                        strongComponents.Add(new List<T> { v });
 
                     DFSR_Topological_StrongComponents(graph, v, strongComponents);
                 }
             }
         }
-        internal void DFSR_Topological_StrongComponents(IDictionary<string, IList<string>> graph, string s, IList<IList<string>> strongComponents)
+        internal void DFSR_Topological_StrongComponents(IDictionary<T, IList<T>> graph, T s, IList<IList<T>> strongComponents)
         {
             _dfs_t.Add(s);
 
@@ -396,5 +511,219 @@ namespace Graph
             _t += 1;
             _f[s] = _t;
         }
+         */
+
+
+        // Версия StrongConnectedComponend без рекурсией.
+        public IList<IList<T>> StrongConnectedComponents()
+        {
+
+            IList<T> keys;
+            IList<T> values;
+            int keysCount;
+            int valuesCount;
+            var dfsStack = new Stack<T>();
+
+            #region DFS Loop 1
+            Console.WriteLine("Step 1: DFS Loop 1 ");
+            _dfs_t.Clear();
+            _t = 0;
+
+            keys = _graph.Keys.ToList();
+            keysCount = keys.Count;
+            for (var i = 0; i < keysCount; ++i)
+            {
+                var s = keys[i];
+                if (!_dfs_t.Contains(s))
+                {
+                    #region DFS
+
+                    dfsStack.Push(s);
+                    _dfs_t.Add(s);
+                    while (dfsStack.Count > 0)
+                    {
+                        var v = dfsStack.Peek();
+                        var isNotFoundExist = false;
+
+                        values = _graph[v];
+                        valuesCount = values.Count;
+                        for (var j = 0; j < valuesCount; ++j)
+                        {
+                            var u = values[j];
+                            if (!_dfs_t.Contains(u))
+                            {
+                                _dfs_t.Add(u);
+                                dfsStack.Push(u);
+                                isNotFoundExist = true;
+                                break;
+                            }
+                        }
+
+                        if (!isNotFoundExist)
+                        {
+                            var vp = dfsStack.Pop();
+                            _t += 1;
+                            _f[vp] = _t;
+                        }
+                    }
+                    #endregion
+                }
+            }
+            #endregion
+
+            #region Траспорнирование графф
+            Console.WriteLine("Step 2: Transponent graph.");
+            var traponedGraph = new Dictionary<T, IList<T>>();
+            for (var i = 0; i < keysCount; ++i)
+            {
+                var v = keys[i];
+                traponedGraph.Add(v, new List<T>());
+                for (var j = 0; j < keysCount; ++j)
+                {
+                    var u = keys[j];
+                    if (_graph[u].Contains(v))
+                    {
+                        traponedGraph[v].Add(u);
+                    }
+                }
+            }
+            #endregion
+
+            #region DFS Loop 2
+            Console.WriteLine("Step 3: DFS Loop 2 ");
+            var strongComponents = new List<IList<T>>();
+
+            _dfs_t.Clear();
+            _t = 0;
+
+            keys = _f.OrderByDescending(x => x.Value).Select(x => x.Key).ToList();
+            keysCount = keys.Count;
+            for (var i = 0; i < keysCount; ++i)
+            {
+                var s = keys[i];
+                if (!_dfs_t.Contains(s))
+                {
+                    strongComponents.Add(new List<T> { s });
+
+                    dfsStack.Push(s);
+                    _dfs_t.Add(s);
+                    while (dfsStack.Count > 0)
+                    {
+                        var v = dfsStack.Peek();
+                        var isNotFoundExist = false;
+
+                        values = traponedGraph[v];
+                        valuesCount = values.Count;
+                        for (var j = 0; j < valuesCount; ++j)
+                        {
+                            var u = values[j];
+                            if (!_dfs_t.Contains(u))
+                            {
+                               strongComponents.Last().Add(u);
+
+                                _dfs_t.Add(u);
+                                dfsStack.Push(u);
+                                isNotFoundExist = true;
+                                break;
+
+                            }
+                        }
+
+                        if (!isNotFoundExist)
+                        {
+                            dfsStack.Pop();
+                        }
+                    }
+                }
+            }
+            
+            #endregion
+
+            return strongComponents;
+        }
+
+        //private int stackLevel = 0;
+        //internal void DFSR_Topological_StrongComponents(IDictionary<T, IList<T>> graph, T s, IList<IList<T>> strongComponents)
+        //{
+        //    //++ stackLevel;
+
+        //    //1
+        //    var dfsStack = new Stack<T>();
+
+        //    dfsStack.Push(s);
+        //    _dfs_t.Add(s);
+        //    while (dfsStack.Count > 0)
+        //    {
+        //        var v = dfsStack.Peek();
+        //        var isNotFoundExist = false;
+
+        //        foreach (var u in graph[v])
+        //        {
+        //            //Console.Write(new string('-', stackLevel) + ">");
+        //            //Console.Write("{0} --> {1}", v, u);
+
+        //            if (!_dfs_t.Contains(u))
+        //            {
+        //                //Console.Write(" :NOT FOUND");
+
+        //                if (strongComponents != null)
+        //                    strongComponents.Last().Add(u);
+
+        //                _dfs_t.Add(u);
+
+        //                dfsStack.Push(u);
+        //                isNotFoundExist = true;
+
+        //                //++stackLevel;
+
+        //                break;
+
+        //            }
+        //            //Console.WriteLine();
+        //        }
+
+        //        if (!isNotFoundExist)
+        //        {
+        //            var vp = dfsStack.Pop();
+
+        //            //--stackLevel;
+
+        //            _t += 1;
+        //            _f[vp] = _t;
+        //            //Console.Write(":f[{0}] = {1}", vp, _t);
+        //        }
+
+        //        //Console.WriteLine();
+        //    }
+
+
+        //    //2
+        //    //_dfs_t.Add(s);
+        //    //foreach (var u in graph[s])
+        //    //{
+        //    //    Console.Write(new string('-', stackLevel) + ">");
+
+        //    //    Console.Write("{0} --> {1}", s, u);
+        //    //    if (!_dfs_t.Contains(u))
+        //    //    {
+        //    //        Console.WriteLine(" :NOT FOUND");
+
+        //    //        if (strongComponents != null)
+        //    //            strongComponents.Last().Add(u);
+
+        //    //        DFSR_Topological_StrongComponents(graph, u, strongComponents);
+        //    //    }
+        //    //    Console.WriteLine();
+        //    //}
+
+        //    //_t += 1;
+        //    //_f[s] = _t;
+        //    //Console.Write(new string('.', stackLevel) + ":");
+        //    //Console.WriteLine("f[{0}] = {1}", s, _t);
+
+        //    //--stackLevel;
+        //}
+
     }
+         
 }

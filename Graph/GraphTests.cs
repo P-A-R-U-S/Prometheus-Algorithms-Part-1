@@ -7,11 +7,11 @@ namespace Graph
 {
     public class GraphTests
     {
-        private readonly Graph _graph;
+        private readonly Graph<string> _graph;
 
         public GraphTests()
         {
-            _graph = new Graph();
+            _graph = new Graph<string>();
         }
 
         private void createGraph1()
