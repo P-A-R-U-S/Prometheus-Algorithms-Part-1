@@ -166,6 +166,9 @@ namespace Graph
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine("Практическое задание #1 : " + task);
             Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("ATTENTION: Выполнение задания занимает значительное время. Ориентировочно 48 часов.");
+            Console.WriteLine("--------------------------------------------");
+            
 
             var inputFileName = @"Data\input_" + task + ".txt";
             //var inputFileName = @"Data\test_08\test_08_1.txt";

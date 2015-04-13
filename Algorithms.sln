@@ -71,10 +71,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree.Search", "Binary
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 8", "Lesson 8", "{E2FDB443-DA92-4250-804E-E12E09FA6314}"
 	ProjectSection(SolutionItems) = preProject
+		Graph\Завдання №8.pdf = Graph\Завдання №8.pdf
+		Graph\Список компонентов сильной связанности Задание № 8.txt = Graph\Список компонентов сильной связанности Задание № 8.txt
 		Graph\Теоретичний тест №8.pdf = Graph\Теоретичний тест №8.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{743136B1-EF23-4A37-BA1F-533013619ABD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 9", "Lesson 9", "{7B7A50CF-9083-48F4-A603-2363180FE522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra", "Dijkstra\Dijkstra.csproj", "{DB331D34-0EC5-458B-AF6D-B26A65F6F000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -122,6 +128,10 @@ Global
 		{743136B1-EF23-4A37-BA1F-533013619ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{743136B1-EF23-4A37-BA1F-533013619ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{743136B1-EF23-4A37-BA1F-533013619ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB331D34-0EC5-458B-AF6D-B26A65F6F000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB331D34-0EC5-458B-AF6D-B26A65F6F000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB331D34-0EC5-458B-AF6D-B26A65F6F000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB331D34-0EC5-458B-AF6D-B26A65F6F000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,5 +154,7 @@ Global
 		{03867119-256B-4DE0-8440-7A6525C2CC76} = {53FF6D12-C850-43D6-A4FD-C8251681A816}
 		{E2FDB443-DA92-4250-804E-E12E09FA6314} = {A09AE661-16BF-4961-A598-B689DF3914B0}
 		{743136B1-EF23-4A37-BA1F-533013619ABD} = {E2FDB443-DA92-4250-804E-E12E09FA6314}
+		{7B7A50CF-9083-48F4-A603-2363180FE522} = {A09AE661-16BF-4961-A598-B689DF3914B0}
+		{DB331D34-0EC5-458B-AF6D-B26A65F6F000} = {7B7A50CF-9083-48F4-A603-2363180FE522}
 	EndGlobalSection
 EndGlobal
