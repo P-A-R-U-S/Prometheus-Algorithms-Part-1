@@ -79,6 +79,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{743136B1-EF23-4A37-BA1F-533013619ABD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 9", "Lesson 9", "{7B7A50CF-9083-48F4-A603-2363180FE522}"
+	ProjectSection(SolutionItems) = preProject
+		Dijkstra\Завдання №9.pdf = Dijkstra\Завдання №9.pdf
+		Dijkstra\Теоретичний тест №9.pdf = Dijkstra\Теоретичний тест №9.pdf
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra", "Dijkstra\Dijkstra.csproj", "{DB331D34-0EC5-458B-AF6D-B26A65F6F000}"
 EndProject
