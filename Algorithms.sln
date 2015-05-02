@@ -4,10 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "I", "I", "{A09AE661-16BF-4961-A598-B689DF3914B0}"
+	ProjectSection(SolutionItems) = preProject
+		Iспит-1.pdf = Iспит-1.pdf
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 1", "Lesson 1", "{FE618DD4-2963-4C7D-A2EB-CEBC9C93ECDC}"
 	ProjectSection(SolutionItems) = preProject
-		KaratsubaMultiplication\Theoretical.doc = KaratsubaMultiplication\Theoretical.doc
+		KaratsubaMultiplication\Завдання №1.pdf = KaratsubaMultiplication\Завдання №1.pdf
+		KaratsubaMultiplication\Теоретический тест №1.pdf = KaratsubaMultiplication\Теоретический тест №1.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaratsubaMultiplication", "KaratsubaMultiplication\KaratsubaMultiplication.csproj", "{6A9432FC-4A9B-4F4A-8A8A-BCB7E17CA111}"
@@ -16,37 +20,35 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonachi", "Fibonachi\Fibo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 2", "Lesson 2", "{DB959B48-693C-47AB-8C0B-A5B91CEEAA03}"
 	ProjectSection(SolutionItems) = preProject
-		Inversions\Practical.doc = Inversions\Practical.doc
-		Inversions\Theoretical.doc = Inversions\Theoretical.doc
+		Inversions\Завдання №2.pdf = Inversions\Завдання №2.pdf
+		Inversions\Теоретичний тест №2.pdf = Inversions\Теоретичний тест №2.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversions", "Inversions\Inversions.csproj", "{4D3ABBC6-89C4-43C6-A9BA-12A2C7A68D7B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 3", "Lesson 3", "{29EA5B1E-472A-4EB6-82C8-DD7AF0EDBA3B}"
 	ProjectSection(SolutionItems) = preProject
-		QuickSort\Practical.doc = QuickSort\Practical.doc
-		QuickSort\Theoretical.doc = QuickSort\Theoretical.doc
+		QuickSort\Завдання №3.pdf = QuickSort\Завдання №3.pdf
+		QuickSort\Теоретичний тест №3.pdf = QuickSort\Теоретичний тест №3.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickSort", "QuickSort\QuickSort.csproj", "{7EF08FB1-3D04-4AE2-BFAE-2DF9CE3E60B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 4", "Lesson 4", "{8502A00A-A6B6-4FE3-9A9E-A1FE1247C504}"
 	ProjectSection(SolutionItems) = preProject
-		RadixAndCountingSort\Practical.doc = RadixAndCountingSort\Practical.doc
-		RadixAndCountingSort\Theoretical.doc = RadixAndCountingSort\Theoretical.doc
+		RadixAndCountingSort\Завдання №4.pdf = RadixAndCountingSort\Завдання №4.pdf
+		RadixAndCountingSort\Теоретичний тест №4.pdf = RadixAndCountingSort\Теоретичний тест №4.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadixAndCountingSort", "RadixAndCountingSort\RadixAndCountingSort.csproj", "{C5D412CC-EDF0-4B4B-8E96-F3340E3A2D4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 5", "Lesson 5", "{C3C47643-53C3-4C3D-86CC-700C3793CA9E}"
 	ProjectSection(SolutionItems) = preProject
-		HeapMedian\Practical.doc = HeapMedian\Practical.doc
-		HeapMedian\Theoretical.doc = HeapMedian\Theoretical.doc
+		HeapMedian\Завдання №5.pdf = HeapMedian\Завдання №5.pdf
+		HeapMedian\Теоретичний тест №5.pdf = HeapMedian\Теоретичний тест №5.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heaps", "HeapMedian\Heaps.csproj", "{B9208895-BB0B-4E12-8FB4-A5101AD807C3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heap.Tests", "Heap.Tests\Heap.Tests.csproj", "{A9E52920-2F6C-42B1-8862-5F26E72E41C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DDF6F8DE-C36C-4A34-ACBB-A0B18A9377EC}"
 	ProjectSection(SolutionItems) = preProject
@@ -55,8 +57,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DDF6F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson 6", "Lesson 6", "{475C5CDA-479A-4B8D-93AC-078BEDCD69D3}"
 	ProjectSection(SolutionItems) = preProject
-		HashTables\Practical.doc = HashTables\Practical.doc
-		HashTables\Theoretical.doc = HashTables\Theoretical.doc
+		HashTables\Завдання №6.pdf = HashTables\Завдання №6.pdf
+		HashTables\Теоретичний тест №6.pdf = HashTables\Теоретичний тест №6.pdf
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTables", "HashTables\HashTables.csproj", "{254254CA-D651-4B67-A4E4-6D2C6FD81DE9}"
@@ -116,10 +118,6 @@ Global
 		{B9208895-BB0B-4E12-8FB4-A5101AD807C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9208895-BB0B-4E12-8FB4-A5101AD807C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9208895-BB0B-4E12-8FB4-A5101AD807C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9E52920-2F6C-42B1-8862-5F26E72E41C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9E52920-2F6C-42B1-8862-5F26E72E41C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9E52920-2F6C-42B1-8862-5F26E72E41C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9E52920-2F6C-42B1-8862-5F26E72E41C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{254254CA-D651-4B67-A4E4-6D2C6FD81DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{254254CA-D651-4B67-A4E4-6D2C6FD81DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{254254CA-D651-4B67-A4E4-6D2C6FD81DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -151,7 +149,6 @@ Global
 		{C5D412CC-EDF0-4B4B-8E96-F3340E3A2D4B} = {8502A00A-A6B6-4FE3-9A9E-A1FE1247C504}
 		{C3C47643-53C3-4C3D-86CC-700C3793CA9E} = {A09AE661-16BF-4961-A598-B689DF3914B0}
 		{B9208895-BB0B-4E12-8FB4-A5101AD807C3} = {C3C47643-53C3-4C3D-86CC-700C3793CA9E}
-		{A9E52920-2F6C-42B1-8862-5F26E72E41C8} = {C3C47643-53C3-4C3D-86CC-700C3793CA9E}
 		{475C5CDA-479A-4B8D-93AC-078BEDCD69D3} = {A09AE661-16BF-4961-A598-B689DF3914B0}
 		{254254CA-D651-4B67-A4E4-6D2C6FD81DE9} = {475C5CDA-479A-4B8D-93AC-078BEDCD69D3}
 		{53FF6D12-C850-43D6-A4FD-C8251681A816} = {A09AE661-16BF-4961-A598-B689DF3914B0}

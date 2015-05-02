@@ -1,12 +1,10 @@
-﻿using FluentAssertions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using FluentAssertions;
 using HeapMedian;
 using Xunit;
-using Heap = HeapMedian.Heap;
 
-namespace Tests.HeapHighToLow
+namespace Heaps.Tests
 {
-
     public class WhenIUseHeapHighToLow
     {
         private Heap _heapHighToLow;
